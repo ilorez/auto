@@ -11,3 +11,5 @@ su - ilorez
 ./auto3_setup_git.sh
 ./auto4_setup_shell.sh
 ./auto5_install_nvim.sh
+./auto6_network_packages.sh
+
