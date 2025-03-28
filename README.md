@@ -12,6 +12,14 @@ https://github.com/ilorez/auto.git
 - Git/SSH configuration
 - User management
 
+## ⚙️ Dotfiles Management
+- Automatic deployment of:
+  - i3 window manager config
+  - i3status configuration
+  - Alacritty terminal settings
+- Future-proof structure for additional configs
+- Preserves existing files during setup
+
 ## 🚀 Bootstrap Installation
 
 ### On Fresh Arch System (No Git Available)
@@ -63,3 +71,9 @@ chmod +x auth*.sh
 ## 🖥️ Post-Install
 - Start i3: `startx`
 - Configure wifi: `wifi` alias (runs nmtui)
+## 🔄 Updating Dotfiles
+```bash
+cd ~/.dotfiles
+git pull
+rsync -av --update --ignore-existing .config/ ~/.config/
+```

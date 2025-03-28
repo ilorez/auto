@@ -33,4 +33,19 @@ alias wifi="nmtui"
 EOF
 
 echo -e "\n\033[1;32m✔ Shell configured\033[0m"
+
+# Clone and deploy dotfiles
+echo -e "\n\033[1;32m=== Configuring Dotfiles ===\033[0m"
+git clone https://github.com/ilorez/mydotfiles.git ~/.dotfiles
+
+# Create config directory if missing
+mkdir -p ~/.config
+
+# Rsync to preserve existing files
+rsync -av --ignore-existing ~/.dotfiles/.config/ ~/.config/
+
+# Optional: Symlink for future updates
+ln -sf ~/.dotfiles/.config ~/linked-config 2>/dev/null
+
+echo "✅ Dotfiles deployed to ~/.config"
 echo "Run: source ~/.zshrc && ./auto5_install_nvim.sh"
